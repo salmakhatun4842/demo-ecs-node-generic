@@ -11,12 +11,12 @@ phases:
       - "echo Build started on `date`"
       - "echo Building the Docker image..."
       - "docker build -t node ."
-      - "docker tag node:latest 753613252360.dkr.ecr.ap-south-1.amazonaws.com/node:latest"
+      - "docker tag node:latest 992382769884dkr.ecr.ap-south-1.amazonaws.com/node:latest"
   post_build:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
-      - "docker push 753613252360.dkr.ecr.ap-south-1.amazonaws.com/node:latest"
-      - printf '[{"name":"nodecontainer","imageUri":"%s"}]' 753613252360.dkr.ecr.ap-south-1.amazonaws.com/node:latest > imagedefinitions.json
+      - "docker push 992382769884.dkr.ecr.ap-south-1.amazonaws.com/node:latest"
+      - printf '[{"name":"nodecontainer","imageUri":"%s"}]' 992382769884.dkr.ecr.ap-south-1.amazonaws.com/node:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
