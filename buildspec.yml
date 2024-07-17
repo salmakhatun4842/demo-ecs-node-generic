@@ -5,7 +5,7 @@ phases:
   pre_build:
     commands:
       #- $(aws ecr get-login --no-include-email --region ap-south-1)
-      - aws ecr get-login-password --region ap-south-1 | docker login --username salmakhatun --password Munni@4842
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 992382769884.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - "echo Build started on `date`"
@@ -16,7 +16,7 @@ phases:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
-      - "docker push 992382769884.dkr.ecr.ap-south-1.amazonaws.com/node:latest"
-      - printf '[{"name":"nodecontainer","imageUri":"%s"}]' 992382769884.dkr.ecr.ap-south-1.amazonaws.com/node:latest > imagedefinitions.json
+      - "docker push 992382769884.dkr.ecr.us-east-1.amazonaws.com/testing:latest"
+      - printf '[{"name":"nodecontainer","imageUri":"%s"}]' 992382769884.dkr.ecr.us-east-1.amazonaws.com/testing:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
